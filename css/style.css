@@ -1,0 +1,24 @@
+
+ section#clients{
+    background-color: #F7F7F7;
+ }
+ .head-Testmonial {
+    background-image: url(../imgs/dots.png);
+    width: 12%;
+    margin-inline: auto;
+}
+
+ .carousel-inner .carousel-img{
+    width: 130px;
+    height: 130px;
+}
+.carousel-indicators button[data-bs-target]{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: gray;
+    
+}
+.carousel-indicators button[data-bs-target]:hover{
+    background-color: black;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+
+</head>
+<body>
+  <div class="container">
+    <h2 class="text-center my-5">Crud System</h2>
+    
+      <div class="form-floating mb-3 ">
+        <input type="text" class="form-control" id="productName" placeholder="name@example.com">
+        <label for="productName">Product Name</label>
+      </div>
+      <div class="form-floating mb-3 ">
+        <input type="number" class="form-control" id="productPrice" placeholder="name@example.com">
+        <label for="productPrice">Product Price</label>
+      </div>
+      <div class="form-floating mb-3 ">
+        <input type="file" class="form-control" id="productImage" placeholder="name@example.com">
+        <label for="productImage">Product Image</label>
+      </div>
+      <div class="form-floating mb-3 ">
+        <input list="cate" type="search" class="form-control" id="productCategory" placeholder="name@example.com">
+        <label for="productCategory">Product Category</label>
+        <datalist id="cate">
+          <option value="Tv"/>
+          <option value="Mobile"/>
+          <option value="Screen"/>
+          <option value="Labtop"/>
+        </datalist>
+      </div>
+      <div class="form-floating">
+        <textarea class="form-control" placeholder="Leave a comment here" id="productDesc" style="height: 150px"></textarea>
+        <label for="productDesc">Product Description</label>
+      </div>
+      <button onclick="addProduct()" id="addBtn" class="btn btn-info mt-3">Add Product</button>
+      <button onclick="update()" id="updateBtn" class="btn btn-warning mt-3">Update Product</button>
+ 
+   
+  </div>
+
+    <div class="container mt-5">
+      <input oninput="search()" type="search" class="form-control" id="searchInput" placeholder="Search By Name" class="form-floating  " >
+    
+    </div>
+
+  <div class="container my-5">
+    <div class="row" id="rowData">
+      
+    </div>
+  </div>
+  <script src="./js/main.js">
+  
+  </script>
+</body>
+</html>
