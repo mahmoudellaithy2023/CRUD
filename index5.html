@@ -14,19 +14,23 @@
     <h2 class="text-center my-5">Crud System</h2>
     
       <div class="form-floating mb-3 ">
-        <input type="text" class="form-control" id="productName" placeholder="name@example.com">
+        <input oninput="validationName()" type="text" class="form-control" id="productName" placeholder="name@example.com">
         <label for="productName">Product Name</label>
       </div>
+      <p id="alertName" class="alert d-none text-danger">Name min 3 character max to 15</p>
+
       <div class="form-floating mb-3 ">
-        <input type="number" class="form-control" id="productPrice" placeholder="name@example.com">
+        <input oninput=" validationPrice()" type="number" class="form-control" id="productPrice" placeholder="name@example.com">
         <label for="productPrice">Product Price</label>
       </div>
+      <p id="alertPrice" class="alert d-none text-danger">Price min 3 Diget max to 6</p>
+
       <div class="form-floating mb-3 ">
         <input type="file" class="form-control" id="productImage" placeholder="name@example.com">
         <label for="productImage">Product Image</label>
       </div>
       <div class="form-floating mb-3 ">
-        <input list="cate" type="search" class="form-control" id="productCategory" placeholder="name@example.com">
+        <input oninput="validationCategory()" list="cate" type="search" class="form-control" id="productCategory" placeholder="name@example.com">
         <label for="productCategory">Product Category</label>
         <datalist id="cate">
           <option value="Tv"/>
@@ -35,12 +39,14 @@
           <option value="Labtop"/>
         </datalist>
       </div>
+      <p id="alertCate" class="alert d-none text-danger">This Faild Is Requaired</p>
       <div class="form-floating">
-        <textarea class="form-control" placeholder="Leave a comment here" id="productDesc" style="height: 150px"></textarea>
+        <textarea oninput="validationDesc()" class="form-control" placeholder="Leave a comment here" id="productDesc" style="height: 150px"></textarea>
         <label for="productDesc">Product Description</label>
       </div>
+      <p id="alertDesc" class="alert d-none text-danger">Description Must Have 3 to 1500 character</p>
       <button onclick="addProduct()" id="addBtn" class="btn btn-info mt-3">Add Product</button>
-      <button onclick="update()" id="updateBtn" class="btn btn-warning mt-3">Update Product</button>
+      <button onclick="update()" id="updateBtn" class="btn btn-warning mt-3 d-none">Update Product</button>
  
    
   </div>
@@ -55,6 +61,7 @@
       
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="./js/main.js">
   
   </script>

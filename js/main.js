@@ -16,12 +16,13 @@ if(localStorage.getItem("products")!=null){
 }
 
 function addProduct(){
+ if(validationName() && validationPrice() && validationDesc() && validationCategory()){
   var product={
     name:productName.value,
     price:productPrice.value,
     category:productCate.value,
     desc:productDesc.value,
-    img:`img/${productImage.files[0].name}`
+    img:`img/th.jpeg`
   }
   productList.push(product);
 
@@ -29,6 +30,16 @@ function addProduct(){
   display();
   console.log(productList);
   clearData();
+ }
+ else{
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Data Is Invalid!",
+    
+  });
+  
+ }
 }
 function clearData(){
   productName.value=null;
@@ -36,6 +47,10 @@ function clearData(){
   productDesc.value=null;
   productCate.value=null;
   productImage.value=null;
+  productName.classList.remove("is-valid");
+  productPrice.classList.remove("is-valid");
+  productCate.classList.remove("is-valid");
+  productDesc.classList.remove("is-valid");
 }
 
 function display(){
@@ -112,4 +127,68 @@ function update(){
   localStorage.setItem("products",JSON.stringify(productList));
   display();
   clearData();
+}
+
+function validationName(){
+  var Regex=/^(\w|\s){3,15}$/;
+  var testString=productName.value
+  if(Regex.test(testString)){
+    productName.classList.add("is-valid");
+    productName.classList.remove("is-invalid");
+    document.getElementById("alertName").classList.add("d-none");
+    return true
+  }else{
+    productName.classList.add("is-invalid");
+    productName.classList.remove("is-valid");
+    document.getElementById("alertName").classList.remove("d-none");
+    return false
+  }
+}
+function validationPrice(){
+  var Regex=/^[1-9]\d{2,6}$/
+  var testPrice =productPrice.value;
+  if(Regex.test(testPrice)){
+    productPrice.classList.add("is-valid");
+    productPrice.classList.remove("is-invalid");
+    document.getElementById("alertPrice").classList.add("d-none")
+    return true
+  }
+  else{
+    productPrice.classList.add("is-invalid");
+    productPrice.classList.remove("is-valid");
+    document.getElementById("alertPrice").classList.remove("d-none")
+    return false
+  }
+}
+function validationCategory(){
+  var Regex=/^(Labtop|Screen|Mobile|Tv)$/
+  var testCate =productCate.value;
+  if(Regex.test(testCate)){
+    productCate.classList.add("is-valid");
+    productCate.classList.remove("is-invalid");
+    document.getElementById("alertCate").classList.add("d-none")
+    return true
+  }
+  else{
+    productCate.classList.add("is-invalid");
+    productCate.classList.remove("is-valid");
+    document.getElementById("alertCate").classList.remove("d-none")
+    return false
+  }
+}
+function validationDesc(){
+  var Regex=/^.{3,1500}$/
+  var testDesc =productDesc.value;
+  if(Regex.test(testDesc)){
+    productDesc.classList.add("is-valid");
+    productDesc.classList.remove("is-invalid");
+    document.getElementById("alertDesc").classList.add("d-none")
+    return true
+  }
+  else{
+    productDesc.classList.add("is-invalid");
+    productDesc.classList.remove("is-valid");
+    document.getElementById("alertDesc").classList.remove("d-none")
+    return false
+  }
 }
